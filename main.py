@@ -34,7 +34,7 @@ def fetch_and_upload():
             "apikey": api_key
         }
 
-        bucket_name = "stocksmarketdata"
+        bucket_name = "Your_bucket_name"
         
         # Generate a unique file name with timestamp
         file_name = f"stock_price_combined_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
@@ -68,13 +68,13 @@ def fetch_and_upload():
         upload_to_s3(bucket_name, file_content, file_name)
     else:
         print("No data was collected.")
-## Schedule the task every 12 hours
-# schedule.every(12).hours.do(fetch_and_upload)
+# Schedule the task every 12 hours
+schedule.every(12).hours.do(fetch_and_upload)
 
 fetch_and_upload()
-## Keep the scheduler running
-# if __name__ == "__main__":
-#     logging.info("Starting the scheduler...")
-#     while True:
-#         schedule.run_pending()
-#         time.sleep(1)  # Sleep for 1 second before checking again
+# Keep the scheduler running
+if __name__ == "__main__":
+     logging.info("Starting the scheduler...")
+     while True:
+         schedule.run_pending()
+         time.sleep(1)  # Sleep for 1 second before checking again
