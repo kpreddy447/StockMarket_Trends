@@ -18,7 +18,7 @@ logging.info("Log setup successful!")
 # Fetching and uploading data for each company
 def fetch_and_upload():
     api_url = "https://www.alphavantage.co/query"
-    api_key = "60OT239K9O1T71JR"
+    api_key = "GET KEY"
 
     symbols = ["AAPL", "IBM"]  # List of companies
 
